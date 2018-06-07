@@ -1,0 +1,13 @@
+body {
+    background-image: url("../images/49ers_background.jpg");
+    background-size: 100%;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+#startButton {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
