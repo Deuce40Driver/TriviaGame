@@ -7,7 +7,15 @@ body {
     padding: 10px;
 }
 
-#startButton {
-    padding-top: 50px;
-    padding-bottom: 20px;
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0.50);
+  }
+
+.card {
+    background-color: rgba(0, 0, 0, 0.50);
 }
+
+.list-group-item {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+

@@ -1,7 +1,13 @@
+//When the user clicks the start button display the first question from the questions array and start a 10 second timer.
+//If the user clicks the correct answer congratulate them, wait a few seconds, then display next question.
+//If the user clicks the wrong answer imsult them, wait a few seconds, then display the next question.
+//If the timer runs out show time's up, wait a few seconds, then display the next question.
+//When all 10 questions have been answered end the game and show the score and a restart button.
+
 var questionOne = {
     question: "How many Super Bowls have the 49ers won?",
     choices: choices = [3, 4, 5, 6],
-    answer: this.choices[1],
+    answer: this.choices[2],
 };
 
 var questionTwo = {
@@ -58,124 +64,123 @@ var questionTen = {
     answer: this.choices[3],
 };
 
-var questions = [questionOne.question, questionTwo.question, questionThree.question, questionFour.question, questionFive.question, questionSix.question, questionSeven.question, questionEight.question, questionNine.question, questionTen.question];
+var questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen];
 
-var answers = [questionOne.answer, questionTwo.answer, questionThree.answer, questionFour.answer, questionFive.answer, questionSix.answer, questionSeven.answer, questionEight.answer, questionNine.answer, questionTen.answer];
+var correctCollapse = "Correct! The 49ers have won 5 Super Bowls and are widely considered the greatest team of all time! Facts!";
+var incorrectCollapse = "Ha! Wrong! I thought you said you were a fan!?";
 
-//When the user clicks the start button display the first question from the questions array and start a 10 second timer.
+var timer = 10;
 
-//If the user clicks the correct answer congratulate them, wait a few seconds, then display next question.
+var timerInterval;
 
-//If the user clicks the wrong answer imsult them, wait a few seconds, then display the next question.
+var questionNumber = 0; 
 
-//If the timer runs out show time's up, wait a few seconds, then display the next question.
+// Function to set the questions, choices, and accordian 
+function setQuestion() {
+    $('#timer').html('Time Remaining: ' + timer);
 
-//When all 10 questions have been answered end the game and show the score and a restart button.
+    $('#question').html('<h2>' + questions[questionNumber].question + '</h2>');
 
-$("#startButton").click(function() {
-    setTimeout(fiveSeconds, 5000);
-    setTimeout(tenSeconds, 10000);
-    setTimeout(fifteenSeconds, 15000);
-    setTimeout(twentySeconds, 20000);
-    setTimeout(twentyFiveSeconds, 25000);
-    setTimeout(thirtySeconds, 30000);
-    setTimeout(thirtyFiveSeconds, 35000);
-    setTimeout(fortySeconds, 40000);
-    setTimeout(fortyFiveSeconds, 45000);
-    $("#question").html('<h2>' + questions[0] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionOne.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionOne.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionOne.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionOne.choices[3] + '</h2>');
+    for (var i = 0; i < questions[questionNumber].choices.length; i++) {
+        $('#choice' + [i])
+            .html('<h2>' + questions[questionNumber].choices[i] + '</h2>')
+            .attr('val', questions[questionNumber].choices[i])
+    };
 
-    // Put an if else statement here.
-    // if the user clicks the correct answer
-    // alert correct and add point to correct
-    // else the user picks any other answer
-    // alert wrong and add point to incorrect
-    //if ()
-})
+    $('.list-group-item').attr('data-toggle', 'collapse');
 
-function fiveSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[1] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionTwo.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionTwo.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionTwo.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionTwo.choices[3] + '</h2>');
-}
+    for (var j = 0; j < questions[questionNumber].choices.length; j++) {
 
-function tenSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[2] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionThree.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionThree.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionThree.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionThree.choices[3] + '</h2>');
-}
+        if (questions[questionNumber].choices[j] == questions[questionNumber].answer) {
+            $('#choiceCollapse' + [j]).html('<p>' + correctCollapse + '</p>');
+        } else {
+            $('#choiceCollapse' + [j]).html('<p>' + incorrectCollapse + '</p>');
+        };
+    
+    };
+};
 
-function fifteenSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[3] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionFour.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionFour.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionFour.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionFour.choices[3] + '</h2>');
-}
+// Function to run the timer
+function runTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(setTimer, 1000);
+};
 
-function twentySeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[4] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionFive.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionFive.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionFive.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionFive.choices[3] + '</h2>');
-}
+// Function to reset and show timer on page
+function setTimer() {
+    timer--;
+    $('#timer').html('Time Remaining: ' + timer);
 
-function twentyFiveSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[5] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionSix.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionSix.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionSix.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionSix.choices[3] + '</h2>');
-}
+    if (timer === -1) {
+        $('#timer').html('Time Remaining: ' + timer);
+        alertTimeout();
+    };
+};
 
-function thirtySeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[6] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionSeven.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionSeven.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionSeven.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionSeven.choices[3] + '</h2>');
-}
+// Function to clear the time and alert the player that time is up.
+function alertTimeout() {
+    clearInterval(timerInterval);
+    alert('Times up!');
+    timer = 10;
+    $('#timer').html('Time Remaining: ' + timer);
+};
 
-function thirtyFiveSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[7] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionEight.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionEight.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionEight.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionEight.choices[3] + '</h2>');
-}
-
-function fortySeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[8] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionNine.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionNine.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionNine.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionNine.choices[3] + '</h2>');
-}
-
-function fortyFiveSeconds() {
-    alert("Time's Up!")
-    $("#question").html('<h2>' + questions[9] + '</h2>');
-    $("#choiceOne").html('<h2>' + questionTen.choices[0] + '</h2>');
-    $("#choiceTwo").html('<h2>' + questionTen.choices[1] + '</h2>');
-    $("#choiceThree").html('<h2>' + questionTen.choices[2] + '</h2>');
-    $("#choiceFour").html('<h2>' + questionTen.choices[3] + '</h2>');
-}
+// Function to reset the game when a player clicks the 'Restart' button
+function restartGame() {
+    /*
+        reset the timer
+        reset the scoreboard
+        go back to question 1
+    */
+};
 
 
+$(document).ready(function() {
 
+
+    $("#startButton").on('click', function() {
+        runTimer();
+        setQuestion();
+    });
+
+    $('.list-group-item').on('click', function() {
+
+        playerChoice = $(this).attr('val');
+         
+        if (playerChoice == questions[questionNumber].answer) {
+            clearInterval(timerInterval);
+            $('#timer').html('Time Remaining: ' + timer);
+
+            setTimeout(nextQuestion, 3000);
+
+            function nextQuestion() {   
+                questionNumber++;
+                timer = 10;
+                setQuestion();
+                runTimer(); 
+            };
+        } else {
+            clearInterval(timerInterval);
+            $('#timer').html('Time Remaining: ' + timer);
+
+            setTimeout(nextQuestion, 3000);
+            
+            function nextQuestion() {
+                questionNumber++;
+                timer = 10;
+                setQuestion();
+                runTimer();
+            };
+        };     
+    });
+
+    $('#nextQuestion').on('click', function() {
+        questionNumber++;
+        timer = 10;
+        setQuestion();
+        runTimer();
+    });
+
+    $('#restartGame').on('click', restartGame());
+
+});

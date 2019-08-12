@@ -12,41 +12,53 @@
 
 <body>
 
+    <div class="jumbotron">
+        <h1 class="display-4">San Francisco 49ers Trivia</h1>
+            <p class="lead">Are you a true fan? Can you answer these 10 questions in under 10 seconds each?</p>
+            <hr class="my-4">
+            <p>Press start to begin!</p>
+        <a id="startButton" class="btn btn-primary btn-lg" href="#" role="button">Start!</a>
+    </div>
+
+
     <div class = "container">
+        <div class="card">
+            <div class="card-body">
+                <h5 id="timer" class="card-title"></h5>
+                <p id="question" class="card-text"></p>
+            </div>
 
-        <div class = "row">
-            <div class = "col-md-12">
-                <h1><strong>San Francisco 49ers Trivia</strong></h1>
+            <div class="accordion" id="accordionExample">
+                <ul class="list-group list-group-flush">
+
+                    <li id="choice0" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></li>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="choiceCollapse0" class="card-body"></div>
+                    </div>
+
+                    <li id="choice1" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></li>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="choiceCollapse1" class="card-body"></div>
+                    </div>
+
+                    <li id="choice2" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></li>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="choiceCollapse2" class="card-body"></div>
+                    </div>
+
+                    <li id="choice3" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour"></li>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="choiceCollapse3" class="card-body"></div>
+                    </div>
+
+            </div>
+
+
+            <div class="card-body">
+                <a id="restart" href="#" class="card-link">Restart Game</a>
+                <a id="nextQuestion" href="#" class="card-link">Next Question</a>
             </div>
         </div>
-
-        <div class = "row">
-            <div id = "startButton" class = "col-md-12">
-                <button type="button" class="btn btn-light">Start</button>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col-md-12">
-                <h3>Time Remaining:</h3>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col-md-12">
-                <h1 id = "question"></h1>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col-md-12">
-                <h1 id = "choiceOne"></h1>
-                <h1 id = "choiceTwo"></h1>
-                <h1 id = "choiceThree"></h1>
-                <h1 id = "choiceFour"></h1>
-            </div>
-        </div>
-        
     </div>
     
 
