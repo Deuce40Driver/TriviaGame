@@ -1,5 +1,5 @@
 # San Francisco 49ers Trivia Game 
-###*An exercise about timers built with JavaScript, jQuery, Bootstrap, HTML, & CSS*
+### *An exercise about timers built with JavaScript, jQuery, Bootstrap, HTML, & CSS*
 
 To begin the game press the start button at the center of the page header.
 
