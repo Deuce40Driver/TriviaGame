@@ -1,21 +1,61 @@
 body {
-    background-image: url("../images/49ers_background.jpg");
+    background-image: url("../images/background.jpg");
     background-size: 100%;
     font-family: 'Raleway', sans-serif;
     text-align: center;
     color: white;
-    padding: 10px;
 }
 
-.jumbotron {
-    background-color: rgba(0, 0, 0, 0.50);
-  }
+hr {
+    border: solid white 2px;
+    border-radius: 50%;
+    width: 80vw;
+}
 
 .card {
     background-color: rgba(0, 0, 0, 0.50);
+    border: solid white 1px;
+    border-radius: 10px;
+    max-width: 80vw;
+    margin: auto;
+    margin-bottom: 5vh;
 }
 
 .list-group-item {
     background-color: rgba(0, 0, 0, 0.50);
+}
+
+
+.modal-content {
+    background-image: url("../images/background.jpg");
+    border: solid white 1px;
+}
+
+#title, #intro, #startButton {
+    margin: 0px;
+    padding: 0px;
+}
+
+#title {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+#intro, #startButton {
+    font-size: 1.5em;
+}
+
+#startButton {
+    margin: 5px;
+    padding: 5px;
+}
+
+#pageHeader {
+    background-color: rgba(0, 0, 0, 0.50);
+    border-bottom: solid white 1px;
+    margin-bottom: 5vh;
+    min-height: 20vh;
+    padding: 10px;
+    width: 100vw;
 }
 

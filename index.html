@@ -7,66 +7,80 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    
 </head>
 
 <body>
-
-    <div class="jumbotron">
-        <h1 class="display-4">San Francisco 49ers Trivia</h1>
-            <p class="lead">Are you a true fan? Can you answer these 10 questions in under 10 seconds each?</p>
-            <hr class="my-4">
-            <p>Press start to begin!</p>
-        <a id="startButton" class="btn btn-primary btn-lg" href="#" role="button">Start!</a>
+    <!-- Page Header -->
+    <div id="pageHeader" class="jumbotron">
+        <h1 id="title">San Francisco 49ers Trivia</h1>
+        <hr>
+            <p id="intro">Are you a true fan? Can you answer these 10 questions in under 10 seconds each?</p>
+            <p id="intro">Press start to find out!</p>
+        <a id="startButton" class="btn btn-secondary btn-lg" href="#" role="button">Start!</a>
     </div>
+    <!-- End Page Header -->
 
 
-    <div class = "container">
-        <div class="card">
-            <div class="card-body">
-                <h5 id="timer" class="card-title"></h5>
-                <p id="question" class="card-text"></p>
-            </div>
-
-            <div class="accordion" id="accordionExample">
-                <ul class="list-group list-group-flush">
-
-                    <li id="choice0" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></li>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div id="choiceCollapse0" class="card-body"></div>
-                    </div>
-
-                    <li id="choice1" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></li>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div id="choiceCollapse1" class="card-body"></div>
-                    </div>
-
-                    <li id="choice2" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></li>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div id="choiceCollapse2" class="card-body"></div>
-                    </div>
-
-                    <li id="choice3" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour"></li>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div id="choiceCollapse3" class="card-body"></div>
-                    </div>
-
-            </div>
-
-
-            <div class="card-body">
-                <a id="restart" href="#" class="card-link">Restart Game</a>
-                <a id="nextQuestion" href="#" class="card-link">Next Question</a>
-            </div>
+    <!-- Main Game Container -->
+    <div class="card">
+        <div class = "container"></div>
+        <div class="card-body">
+            <h5 id="timer" class="card-title"></h5>
+            <p id="question" class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <ul class="list-group list-group-flush">
+                <li id="choice0" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></li>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="choiceCollapse0" class="card-body"></div>
+                </div>
+                <li id="choice1" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></li>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="choiceCollapse1" class="card-body"></div>
+                </div>
+                <li id="choice2" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></li>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="choiceCollapse2" class="card-body"></div>
+                </div>
+                <li id="choice3" class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour"></li>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="choiceCollapse3" class="card-body"></div>
+                </div>
+        </div>
+        <div class="card-body">
+            <button id='restartGame' class='btn btn-secondary' type='button'>Restart Game</button>
+            <button id='nextQuestion' class='btn btn-secondary' type='button'>Next Question</button>
         </div>
     </div>
-    
+    <!-- End Main Game Container -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="gameOver" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="gameOverLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gameOverLabel">Game Over!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            Looks like you're not much of a fan after all, but hey, there's always room on the bandwagon!
+            </div>
+            <div class="modal-footer">
+                <button id="tryAgainButton" type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
+                <a id="quitButton" href="https://www.49ers.com" type="button" class="btn btn-secondary" data-dismiss="modal" >Educate Yourself</a>  
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- End Modal -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    
     <script src="assets/javascript/app.js"></script>
-
 </body>
 
 </html>
